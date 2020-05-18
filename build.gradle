@@ -7,10 +7,12 @@ buildscript {
     maven {
       url  "https://sandec.bintray.com/repo"
     }
+    gradlePluginPortal()
   }
 
   dependencies {
     classpath "com.sandec.jpro:jpro-plugin-gradle:$JPRO_VERSION"
+    classpath 'org.openjfx:javafx-plugin:0.0.8'
   }
 }
 
@@ -24,3 +26,9 @@ repositories {
 
 apply plugin: 'java'
 apply plugin: 'com.sandec.jpro'
+apply plugin: 'org.openjfx.javafxplugin'
+
+javafx {
+  version = "$JAVAFX_VERSION"
+  modules = [ 'javafx.controls', 'javafx.media' ]
+}
