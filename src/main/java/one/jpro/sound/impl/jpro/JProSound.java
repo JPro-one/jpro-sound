@@ -18,15 +18,15 @@ public class JProSound implements MediaPlayer {
     }
 
     public void play() {
-        api.executeScript("jpro."+name+"play();");
+        api.executeScript("jpro."+name+".play();");
     }
 
     public void pause() {
-        api.executeScript("jpro."+name+"pause();");
+        api.executeScript("jpro."+name+".pause();");
     }
 
     public void stop() {
-        api.executeScript("jpro."+name+"pause();");
+        api.executeScript("jpro."+name+".pause();");
     }
 
     public void setVolume(double volume) {

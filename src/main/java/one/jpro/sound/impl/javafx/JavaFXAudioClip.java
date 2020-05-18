@@ -12,4 +12,8 @@ public class JavaFXAudioClip implements AudioClip {
     public void play() {
         clip.play();
     }
+
+    public void setVolume(double volume) {
+        clip.setVolume(volume);
+    }
 }

@@ -19,5 +19,7 @@ public interface AudioClip {
             return new JavaFXAudioClip(url);
         }
     }
-    abstract void play();
+    public abstract void play();
+
+    public abstract void setVolume(double Double);
 }

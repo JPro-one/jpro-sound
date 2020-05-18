@@ -9,10 +9,10 @@ import java.net.URL;
 
 public class JProMedia implements Media, AudioClip {
 
-    int idCounter = 0;
+    static int idCounter = 0;
     public String getRandomName() {
         idCounter += 1;
-        return "audio-" + idCounter;
+        return "audio" + idCounter;
     }
 
     public WebAPI webapi;
@@ -25,13 +25,20 @@ public class JProMedia implements Media, AudioClip {
         String publicFile = webapi.createPublicFile(url);
         webapi.loadJSFile(getClass().getResource("/js/howler/howler-2.2.0.min.js"));
         webapi.registerValue(audioName, "new Howl({" +
-            "src: ['$publicFile']" +
+            "src: ['"+publicFile+"']" +
             "});");
     }
 
 
 
     public void play() {
-        new JProSound(this, webapi).play();
+        JProSound sound = new JProSound(this, webapi);
+        sound.setVolume(volume);
+        sound.play();
+    }
+
+    double volume = 1.0;
+    public void setVolume(double volume) {
+        volume = 1.0;
     }
 }

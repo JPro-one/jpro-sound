@@ -57,11 +57,31 @@ configure([project(':example')]) {
 }
 
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
 
 version = "$JPRO_SOUND_VERSION"
+group = 'one.jpro'
+
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+      groupId project.group
+      artifactId ("one.jpro.sound")
+      version project.version
+    }
+  }
+}
+
 bintray {
   user = System.getenv('BINTRAY_USER')
   key = System.getenv('BINTRAY_KEY')
+
+  publish = true
+  override = true
+
+  publications = ['mavenJava']
 
   pkg {
     repo = 'repo'
