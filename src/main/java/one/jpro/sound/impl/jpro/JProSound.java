@@ -1,14 +1,14 @@
-package one.jpro.sound.impl.js;
+package one.jpro.sound.impl.jpro;
 
 import com.jpro.webapi.WebAPI;
 import one.jpro.sound.MediaPlayer;
 
-public class ImplSound implements MediaPlayer {
+public class JProSound implements MediaPlayer {
 
     WebAPI api;
     String name;
 
-    public ImplSound(ImplMedia media, WebAPI api) {
+    public JProSound(JProMedia media, WebAPI api) {
         if(api != media.webapi) {
             throw new RuntimeException("Media had a different webapi as the Sound");
         }

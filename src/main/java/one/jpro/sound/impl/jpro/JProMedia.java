@@ -1,4 +1,4 @@
-package one.jpro.sound.impl.js;
+package one.jpro.sound.impl.jpro;
 
 import com.jpro.webapi.WebAPI;
 import javafx.stage.Stage;
@@ -7,7 +7,7 @@ import one.jpro.sound.AudioClip;
 
 import java.net.URL;
 
-public class ImplMedia implements Media, AudioClip {
+public class JProMedia implements Media, AudioClip {
 
     int idCounter = 0;
     public String getRandomName() {
@@ -19,7 +19,7 @@ public class ImplMedia implements Media, AudioClip {
     public String audioName;
 
 
-    public ImplMedia(Stage stage, URL url) {
+    public JProMedia(Stage stage, URL url) {
         webapi = WebAPI.getWebAPI(stage);
         audioName = getRandomName();
         String publicFile = webapi.createPublicFile(url);
@@ -32,6 +32,6 @@ public class ImplMedia implements Media, AudioClip {
 
 
     public void play() {
-        new ImplSound(this, webapi).play();
+        new JProSound(this, webapi).play();
     }
 }

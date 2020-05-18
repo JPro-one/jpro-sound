@@ -1,15 +1,17 @@
 package one.jpro.sound;
 
 import com.jpro.webapi.WebAPI;
-import one.jpro.sound.impl.js.ImplMedia;
-import one.jpro.sound.impl.js.ImplSound;
+import one.jpro.sound.impl.javafx.JavaFXMedia;
+import one.jpro.sound.impl.javafx.JavaFXMediaPlayer;
+import one.jpro.sound.impl.jpro.JProMedia;
+import one.jpro.sound.impl.jpro.JProSound;
 
 public interface MediaPlayer {
     public static MediaPlayer getMediaPlayer(Media media) {
         if(WebAPI.isBrowser()) {
-            return new ImplSound((ImplMedia) media, ((ImplMedia) media).webapi);
+            return new JProSound((JProMedia) media, ((JProMedia) media).webapi);
         } else {
-            return null;
+            return new JavaFXMediaPlayer((JavaFXMedia) media);
         }
     }
 
