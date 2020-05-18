@@ -1,13 +1,14 @@
 package one.jpro.sound.impl.js;
 
 import com.jpro.webapi.WebAPI;
+import one.jpro.sound.MediaPlayer;
 
-class ImplSound {
+public class ImplSound implements MediaPlayer {
 
     WebAPI api;
     String name;
 
-    ImplSound(ImplMedia media, WebAPI api) {
+    public ImplSound(ImplMedia media, WebAPI api) {
         if(api != media.webapi) {
             throw new RuntimeException("Media had a different webapi as the Sound");
         }
@@ -28,11 +29,11 @@ class ImplSound {
         api.executeScript("jpro."+name+"pause();");
     }
 
-    public void setVolume(Double volume) {
+    public void setVolume(double volume) {
         api.executeScript("jpro."+name+".volume("+volume+");");
     }
 
-    public void setLoop(Boolean loop) {
+    public void setLoop(boolean loop) {
         api.executeScript("jpro."+name+".loop("+loop+");");
     }
 }
