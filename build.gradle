@@ -1,0 +1,26 @@
+System.setProperty("file.encoding", "UTF-8")
+
+buildscript {
+  repositories {
+    jcenter()
+
+    maven {
+      url  "https://sandec.bintray.com/repo"
+    }
+  }
+
+  dependencies {
+    classpath "com.sandec.jpro:jpro-plugin-gradle:$JPRO_VERSION"
+  }
+}
+
+repositories {
+  jcenter()
+
+  maven {
+    url  "https://sandec.bintray.com/repo"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.sandec.jpro'
