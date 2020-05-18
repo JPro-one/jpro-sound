@@ -13,6 +13,7 @@ buildscript {
   dependencies {
     classpath "com.sandec.jpro:jpro-plugin-gradle:$JPRO_VERSION"
     classpath 'org.openjfx:javafx-plugin:0.0.8'
+    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
   }
 }
 
@@ -52,5 +53,20 @@ configure([project(':example')]) {
 
   dependencies {
     compile rootProject
+  }
+}
+
+apply plugin: 'com.jfrog.bintray'
+
+version = "$JPRO_SOUND_VERSION"
+bintray {
+  user = System.getenv('BINTRAY_USER')
+  key = System.getenv('BINTRAY_KEY')
+
+  pkg {
+    repo = 'repo'
+    name = "one.jpro.sound"
+    userOrg = 'sandec'
+    licenses = ['Apache-2.0']
   }
 }
