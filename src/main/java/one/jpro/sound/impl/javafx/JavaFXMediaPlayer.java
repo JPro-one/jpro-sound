@@ -7,7 +7,7 @@ public class JavaFXMediaPlayer implements MediaPlayer {
     javafx.scene.media.MediaPlayer mediaPlayer;
 
     public JavaFXMediaPlayer(JavaFXMedia media) {
-        new javafx.scene.media.MediaPlayer(media.media);
+        mediaPlayer = new javafx.scene.media.MediaPlayer(media.media);
     }
 
     public void setVolume(double volume) {
