@@ -16,11 +16,13 @@ buildscript {
   }
 }
 
-repositories {
-  jcenter()
+configure(allprojects) {
+  repositories {
+    jcenter()
 
-  maven {
-    url  "https://sandec.bintray.com/repo"
+    maven {
+      url  "https://sandec.bintray.com/repo"
+    }
   }
 }
 
@@ -31,4 +33,17 @@ apply plugin: 'org.openjfx.javafxplugin'
 javafx {
   version = "$JAVAFX_VERSION"
   modules = [ 'javafx.controls', 'javafx.media' ]
+}
+
+configure([project(':example')]) {
+  mainClassName = 'one.jpro.sound.TestApplication'
+
+  apply plugin: 'java'
+  apply plugin: 'com.sandec.jpro'
+  apply plugin: 'org.openjfx.javafxplugin'
+
+  javafx {
+    version = "$JAVAFX_VERSION"
+    modules = [ 'javafx.controls', 'javafx.media' ]
+  }
 }
