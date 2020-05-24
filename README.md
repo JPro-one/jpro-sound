@@ -1,5 +1,6 @@
 # JPro Sound
 
+[![Build Status](https://travis-ci.org/JPro-one/jpro-sound.svg?branch=master)](https://travis-ci.org/jpro-one/jpro-sound)
 
 Maven:
 ```
