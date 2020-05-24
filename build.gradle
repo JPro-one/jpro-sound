@@ -30,6 +30,8 @@ configure(allprojects) {
     }
   }
 
+  mainClassName = 'ignore'
+
   compileJava {
     sourceCompatibility = 11
     targetCompatibility = 11
