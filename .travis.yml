@@ -7,4 +7,4 @@ os:
   - linux
 
 script:
-  - ./gradlew clean jar
+  - ./gradlew clean jar example:jar
